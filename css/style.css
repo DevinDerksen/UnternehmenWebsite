@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+/* Base reset essentials to avoid overflow on mobile */
+*,*::before,*::after{box-sizing:border-box}
+html{width:100%;overflow-x:hidden}
+body{margin:0;width:100%;overflow-x:hidden}
+img,video{max-width:100%;height:auto}
+svg{max-width:100%;height:auto}
 :root{
 	--color-bg:#ffffff;
 	--color-text:#1a1a1a;
@@ -19,12 +25,12 @@
 }
 html,body{background:var(--color-bg);color:var(--color-text);}
 body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;}
-.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.container{max-width:1100px;margin:0 auto;padding:0 1rem;width:100%}
 .section{padding:4rem 0}
 .section--alt{background:var(--color-surface)}
 .section__header{margin-bottom:2rem}
 .section__title{font-size:2rem;line-height:1.2}
-.section__subtitle{color:var(--color-muted)}
+.section__subtitle{color:var(--color-muted);overflow-wrap:anywhere;word-break:break-word}
 
 /* Header / Nav */
 .header{position:sticky;top:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);z-index:100}
@@ -58,10 +64,11 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 
 /* About */
 .about__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}
+.about__text{max-width:100%;overflow-wrap:anywhere;word-break:break-word}
 .stat-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:.75rem;padding:1rem;text-align:center}
 .stat-card__number{font-size:1.75rem;color:var(--color-primary)}
 .stat-card__label{color:var(--color-muted)}
-.about__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.about__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 
 /* Services */
 .services__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -111,7 +118,7 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 /* Responsive */
 @media (max-width: 900px){
 	.about__grid{grid-template-columns:1fr}
-	.about__stats{grid-template-columns:repeat(3,1fr)}
+	.about__stats{grid-template-columns:repeat(3,minmax(0,1fr))}
 	.services__grid{grid-template-columns:1fr 1fr}
 	.footer__grid{grid-template-columns:1fr 1fr}
 }
@@ -123,6 +130,7 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 	.theme-toggle{order:4}
 	.nav__menu.open{display:flex}
 	.hero__title{font-size:2rem}
+	.about__stats{grid-template-columns:repeat(2,minmax(0,1fr))}
 	.services__grid{grid-template-columns:1fr}
 	.contact-company__grid{grid-template-columns:1fr}
 	.contact-info{grid-template-columns:1fr}
@@ -133,5 +141,6 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 
 /* Extra small: stack image above info to avoid squeeze */
 @media (max-width: 380px){
+	.about__stats{grid-template-columns:1fr}
 	.founder-card{grid-template-columns:1fr}
 }
