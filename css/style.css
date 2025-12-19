@@ -91,9 +91,12 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 .image-placeholder{border:2px dashed var(--color-border);border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;color:var(--color-muted);gap:.5rem}
 .contact-company__image img{display:block;width:100%;height:300px;object-fit:cover;border-radius:1rem;border:1px solid var(--color-border);background:var(--color-bg)}
 .contact-info{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.contact-info--auto{grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))}
 .contact-info__item{display:flex;gap:.75rem;align-items:flex-start;border:1px solid var(--color-border);border-radius:.75rem;padding:.75rem;background:var(--color-bg)}
-.founders__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-.founder-card{display:grid;grid-template-columns:180px 1fr;gap:1rem;align-items:center;border:1px solid var(--color-border);border-radius:.75rem;background:var(--color-bg);padding:1rem}
+.founders__grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1.25rem}
+.founder-card{display:grid;grid-template-columns:minmax(140px, 180px) 1fr;gap:1rem;align-items:center;border:1px solid var(--color-border);border-radius:.75rem;background:var(--color-bg);padding:1rem;position:relative;overflow-wrap:anywhere;word-break:break-word}
+.founder-card__info{overflow-wrap:anywhere;word-break:break-word}
+.founder-card__contact a{overflow-wrap:anywhere;word-break:break-word}
 .founder-card__image{width:100%;}
 .founder-card__image .image-placeholder{min-height:160px}
 .founder-card__image img{display:block;width:100%;height:160px;border-radius:.5rem;border:1px solid var(--color-border);object-fit:cover;background:var(--color-bg)}
@@ -113,8 +116,11 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 	.footer__grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width: 640px){
-	.nav__toggle{display:block}
-	.nav__menu{position:fixed;inset:64px 0 auto 0;background:var(--color-bg);border-bottom:1px solid var(--color-border);padding:1rem;display:none;flex-direction:column}
+	/* Reorder so menu pushes burger+theme to the right */
+	.nav__logo{order:1}
+	.nav__menu{order:2;margin-left:auto;position:fixed;inset:64px 0 auto 0;background:var(--color-bg);border-bottom:1px solid var(--color-border);padding:1rem;display:none;flex-direction:column}
+	.nav__toggle{display:block;order:0}
+	.theme-toggle{order:4}
 	.nav__menu.open{display:flex}
 	.hero__title{font-size:2rem}
 	.services__grid{grid-template-columns:1fr}
@@ -123,4 +129,9 @@ body{font-family:'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 	.founders__grid{grid-template-columns:1fr}
 	.form-row{grid-template-columns:1fr}
 	.footer__grid{grid-template-columns:1fr}
+}
+
+/* Extra small: stack image above info to avoid squeeze */
+@media (max-width: 380px){
+	.founder-card{grid-template-columns:1fr}
 }

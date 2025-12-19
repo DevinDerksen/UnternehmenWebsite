@@ -1,5 +1,38 @@
-// Mobile nav toggle
-// (Removed hamburger toggle as per request)
+// Mobile nav toggle: accessible hamburger for small screens
+(() => {
+	const toggle = document.querySelector('.nav__toggle');
+	const menu = document.querySelector('.nav__menu');
+	if (!toggle || !menu) return;
+
+	const links = menu.querySelectorAll('a.nav__link');
+	const setExpanded = (expanded) => {
+		toggle.setAttribute('aria-expanded', String(expanded));
+		menu.classList.toggle('open', expanded);
+		document.body.style.overflow = expanded ? 'hidden' : '';
+	};
+
+	toggle.addEventListener('click', () => {
+		const expanded = toggle.getAttribute('aria-expanded') === 'true';
+		setExpanded(!expanded);
+	});
+
+	// Close menu when a link is clicked (single-page feel)
+	links.forEach((link) => {
+		link.addEventListener('click', () => setExpanded(false));
+	});
+
+	// Close on Escape
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') setExpanded(false);
+	});
+
+	// Click outside to close
+	document.addEventListener('click', (e) => {
+		if (!menu.classList.contains('open')) return;
+		const withinNav = e.target.closest('.nav');
+		if (!withinNav) setExpanded(false);
+	});
+})();
 
 // Theme toggle with localStorage
 const root = document.documentElement;
