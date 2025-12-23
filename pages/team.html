@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,23 @@
 	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+	<header class="topbar">
+		<div class="container topbar__inner">
+			<a class="topbar__phone" href="tel:+49211987654">+49 211 987654</a>
+			<details class="topbar__menu">
+				<summary>Schreiben Sie uns</summary>
+				<div class="topbar__menu-panel" role="menu">
+					<a role="menuitem" href="https://wa.me/49211987654" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+					<a role="menuitem" href="https://signal.me/#p/+49211987654" target="_blank" rel="noopener noreferrer">Signal</a>
+					<a role="menuitem" href="https://teams.microsoft.com/l/chat/0/0?users=kontakt@krantech.de" target="_blank" rel="noopener noreferrer">Microsoft Teams</a>
+				</div>
+			</details>
+			<a class="topbar__email" href="mailto:kontakt@krantech.de">kontakt@krantech.de</a>
+		</div>
+	</header>
 	<header class="header">
 		<nav class="nav container">
-			<div class="nav__logo"><h2>KranTech GmbH</h2></div>
+			<div class="nav__logo"><a href="../index.html" aria-label="Zur Startseite"><h2>KranTech GmbH</h2></a></div>
 			<button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Navigation umschalten"><span></span><span></span><span></span></button>
 			<ul class="nav__menu" id="primary-navigation">
 				<li><a href="../index.html" class="nav__link">Startseite</a></li>
@@ -97,8 +111,8 @@
 				</div>
 				<div class="footer__section">
 					<h4>Kontakt</h4>
-					<p>Email: info@ihr-unternehmen.de</p>
-					<p>Tel: +49 123 456789</p>
+					<p>Email: <a href="mailto:info@ihr-unternehmen.de">info@ihr-unternehmen.de</a></p>
+					<p>Tel: <a href="tel:+49123456789">+49 123 456789</a></p>
 				</div>
 			</div>
 			<div class="footer__bottom">

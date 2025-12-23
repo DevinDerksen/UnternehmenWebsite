@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,23 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<header class="topbar">
+		<div class="container topbar__inner">
+			<a class="topbar__phone" href="tel:+49211987654">+49 211 987654</a>
+			<details class="topbar__menu">
+				<summary>Schreiben Sie uns</summary>
+				<div class="topbar__menu-panel" role="menu">
+					<a role="menuitem" href="https://wa.me/49211987654" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+					<a role="menuitem" href="https://signal.me/#p/+49211987654" target="_blank" rel="noopener noreferrer">Signal</a>
+					<a role="menuitem" href="https://teams.microsoft.com/l/chat/0/0?users=kontakt@krantech.de" target="_blank" rel="noopener noreferrer">Microsoft Teams</a>
+				</div>
+			</details>
+			<a class="topbar__email" href="mailto:kontakt@krantech.de">kontakt@krantech.de</a>
+		</div>
+	</header>
 	<header class="header">
 		<nav class="nav container">
-			<div class="nav__logo"><h2>KranTech GmbH</h2></div>
+			<div class="nav__logo"><a href="index.html" aria-label="Zur Startseite"><h2>KranTech GmbH</h2></a></div>
 			<button class="nav__toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Navigation umschalten"><span></span><span></span><span></span></button>
 			<ul class="nav__menu" id="primary-navigation">
 				<li><a href="index.html" class="nav__link">Startseite</a></li>
@@ -69,14 +83,14 @@
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
 							<div>
 								<strong>Telefon</strong>
-								<p>+49 211 987654</p>
+								<p><a href="tel:+49211987654">+49 211 987654</a></p>
 							</div>
 						</div>
 						<div class="contact-info__item">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 							<div>
 								<strong>Email</strong>
-								<p>kontakt@krantech.de</p>
+								<p><a href="mailto:kontakt@krantech.de">kontakt@krantech.de</a></p>
 							</div>
 						</div>
 						<div class="contact-info__item">
@@ -107,7 +121,7 @@
 						<h3>Alexander Pateew</h3>
 						<p class="founder-card__role">Geschäftsführer & Mitgründer</p>
 						<p class="founder-card__bio">Leitet Vertrieb und Partnerschaften mit Herstellern, verantwortlich für Produktportfolio und Großprojekte.</p>
-						<div class="founder-card__contact"><a href="mailto:alexander.pateew@krantech.de">alexander.pateew@krantech.de</a></div>
+						<div class="founder-card__contact"><a href="mailto:alexander.pateew@krantech.de">alexander.pateew<wbr>@krantech<wbr>.de</a></div>
 					</div>
 				</div>
 				<div class="founder-card">
@@ -118,7 +132,7 @@
 						<h3>Andreas Pateew</h3>
 						<p class="founder-card__role">Geschäftsführer & Mitgründer</p>
 						<p class="founder-card__bio">Verantwortlich für DGUV-Prüfungen, Wartungsplanung und Einsatzkoordination der Serviceteams.</p>
-						<div class="founder-card__contact"><a href="mailto:andreas.pateew@krantech.de">andreas.pateew@krantech.de</a></div>
+						<div class="founder-card__contact"><a href="mailto:andreas.pateew@krantech.de">andreas.pateew<wbr>@krantech<wbr>.de</a></div>
 					</div>
 				</div>
 			</div>
@@ -136,21 +150,21 @@
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
 					<div>
 						<strong>Vertrieb Krane</strong>
-						<p> Platzhalter für Verantwortlichen <br><a href="mailto:vertrieb@krantech.de">vertrieb@krantech.de</a><br>+49 211 987653</p>
+						<p> Platzhalter für Verantwortlichen <br><a href="mailto:vertrieb@krantech.de">vertrieb@krantech.de</a><br><a href="tel:+49211987653">+49 211 987653</a></p>
 					</div>
 				</div>
 				<div class="contact-info__item">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
 					<div>
 						<strong>Service & Wartung</strong>
-						<p> Platzhalter für Verantwortlichen <br><a href="mailto:service@krantech.de">service@krantech.de</a><br>+49 211 987652</p>
+						<p> Platzhalter für Verantwortlichen <br><a href="mailto:service@krantech.de">service@krantech.de</a><br><a href="tel:+49211987652">+49 211 987652</a></p>
 					</div>
 				</div>
 				<div class="contact-info__item">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
 					<div>
 						<strong>Ersatzteile</strong>
-						<p> Platzhalter für Verantwortlichen <br><a href="mailto:teile@krantech.de">teile@krantech.de</a><br>+49 211 987651</p>
+						<p> Platzhalter für Verantwortlichen <br><a href="mailto:teile@krantech.de">teile@krantech.de</a><br><a href="tel:+49211987651">+49 211 987651</a></p>
 					</div>
 				</div>
 			</div>
@@ -224,8 +238,8 @@
 				</div>
 				<div class="footer__section">
 					<h4>Kontakt</h4>
-					<p>Email: kontakt@krantech.de</p>
-					<p>Tel: +49 211 987654</p>
+					<p>Email: <a href="mailto:kontakt@krantech.de">kontakt@krantech.de</a></p>
+					<p>Tel: <a href="tel:+49211987654">+49 211 987654</a></p>
 				</div>
 			</div>
 			<div class="footer__bottom">

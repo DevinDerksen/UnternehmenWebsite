@@ -4,11 +4,18 @@
 	const menu = document.querySelector('.nav__menu');
 	if (!toggle || !menu) return;
 
+	const closeTopbarMenus = () => {
+		document.querySelectorAll('details.topbar__menu[open]').forEach((el) => {
+			el.removeAttribute('open');
+		});
+	};
+
 	const links = menu.querySelectorAll('a.nav__link');
 	const setExpanded = (expanded) => {
 		toggle.setAttribute('aria-expanded', String(expanded));
 		menu.classList.toggle('open', expanded);
 		document.body.style.overflow = expanded ? 'hidden' : '';
+		if (expanded) closeTopbarMenus();
 	};
 
 	toggle.addEventListener('click', () => {
@@ -42,8 +49,8 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light' || savedTheme === 'dark') {
 	root.setAttribute('data-theme', savedTheme);
 } else {
-	root.setAttribute('data-theme', 'light');
-	localStorage.setItem('theme', 'light');
+	root.setAttribute('data-theme', 'dark');
+	localStorage.setItem('theme', 'dark');
 }
 if (themeToggle) {
 	themeToggle.addEventListener('click', () => {
@@ -52,3 +59,44 @@ if (themeToggle) {
 		localStorage.setItem('theme', current);
 	});
 }
+
+// Topbar dropdowns: keep only one open at a time
+(() => {
+	const menus = Array.from(document.querySelectorAll('details.topbar__menu'));
+	const closeTopbarMenus = () => {
+		document.querySelectorAll('details.topbar__menu[open]').forEach((el) => {
+			el.removeAttribute('open');
+		});
+	};
+
+	// Click outside to close
+	document.addEventListener('click', (e) => {
+		if (!document.querySelector('details.topbar__menu[open]')) return;
+		const withinMenu = e.target.closest('details.topbar__menu');
+		if (!withinMenu) closeTopbarMenus();
+	});
+
+	// Close on Escape
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeTopbarMenus();
+	});
+
+	// If any other <details> dropdown is opened, close the topbar menu(s)
+	const otherDetails = Array.from(document.querySelectorAll('details:not(.topbar__menu)'));
+	otherDetails.forEach((el) => {
+		el.addEventListener('toggle', () => {
+			if (el.open) closeTopbarMenus();
+		});
+	});
+
+	if (menus.length < 2) return;
+
+	menus.forEach((menu) => {
+		menu.addEventListener('toggle', () => {
+			if (!menu.open) return;
+			menus.forEach((other) => {
+				if (other !== menu) other.removeAttribute('open');
+			});
+		});
+	});
+})();
